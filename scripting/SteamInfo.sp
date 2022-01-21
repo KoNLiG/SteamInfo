@@ -49,7 +49,7 @@ int Native_GetValue(Handle plugin, int numParams)
 	// Param 3: 'maxlen'
 	int maxlen = GetNativeCell(3);
 	
-	// Parma 2: 'buffer' (Pre-initialized buffer)
+	// Param 2: 'buffer' (Pre-initialized buffer)
 	char[] buffer = new char[maxlen];
 	
 	bool success = g_SteamInfo.GetString(key, buffer, maxlen);
@@ -95,6 +95,7 @@ StringMap InitSteamInfo()
 		rgx.GetSubString(1, key, sizeof(key), current_match);
 		rgx.GetSubString(2, value, sizeof(value), current_match);
 		
+		value[strlen(value) - 1] = '\0';
 		data.SetString(key, value);
 	}
 	
