@@ -95,7 +95,7 @@ StringMap InitSteamInfo()
 		rgx.GetSubString(1, key, sizeof(key), current_match);
 		rgx.GetSubString(2, value, sizeof(value), current_match);
 		
-		value[strlen(value) - 1] = '\0';
+		TrimString(value);
 		data.SetString(key, value);
 	}
 	
